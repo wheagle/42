@@ -44,6 +44,6 @@ error/no solution
 	
 display the grid
 	Can we display the grid live, with real-time updates as the program solves?
-
+	Could this be a bonus? They sometimes have a hidden bonus.
 
 
