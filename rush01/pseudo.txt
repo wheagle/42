@@ -1,0 +1,49 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    pseudo.txt                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/01 22:16:40 by lfrench           #+#    #+#              #
+#    Updated: 2023/12/01 22:27:58 by lfrench          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Parse the argv[1] input
+	catch incorrect input
+		test for digits 
+			0 thru 9
+into an array
+	how to set the size?
+		malloc?
+pass the array 
+	best practice to pass the memory block
+		don't pass? use pointer instead
+into a buffer with malloc
+	best practice with malloc?
+ok, so we now have the input in memory
+how do we approach the problem?
+	look up skyscraper problem algorithms?
+	maybe first try it without potential misguidance?
+identify edge/easy cases
+	inputs of 1 mean the tallest skyscraper is next to that input
+	fill in edge cases
+build an algorithm
+	How does the skyscraper problem look with basic math?
+	Can it be solved easily programmatically rather than steps or trials?
+	Write it out in steps or trial-and-error and then refine?
+	Look up existing solutions for ideas.
+error/no solution
+	some input sets will be incorrect
+	catch bad inputs how?
+		check digits (above)
+		check for impossible problem input
+			by brute force?
+			by clever programming?
+	
+display the grid
+	Can we display the grid live, with real-time updates as the program solves?
+
+
+
