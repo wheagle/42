@@ -28,9 +28,12 @@ how do we approach the problem?
 	maybe first try it without potential misguidance?
 identify edge/easy cases
 	inputs of 1 mean the tallest skyscraper is next to that input
+	inputs of N (tallest in NxN grid) mean the nearest skyscraper is 1 
+		and proceed 1,2,3,4,5
 	fill in edge cases
 build an algorithm
 	How does the skyscraper problem look with basic math?
+	How can we "look" at one row or column at a time, forwards or backwards?
 	Can it be solved easily programmatically rather than steps or trials?
 	Write it out in steps or trial-and-error and then refine?
 	Look up existing solutions for ideas.
