@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   puzzle.h                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/02 14:29:02 by lfrench           #+#    #+#             */
-/*   Updated: 2023/12/03 16:53:27 by lfrench          ###   ########.fr       */
+/*   Created: 2023/12/03 13:03:42 by lfrench           #+#    #+#             */
+/*   Updated: 2023/12/03 16:55:45 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUZZLE_H
-# define PUZZLE_H
+#include <unistd.h>
 
-typedef struct s_puzzle
+void	ft_write_int(int i_to_c)
 {
-	int	**grid;
-	int	size;
-	int	*constraints;
-}	t_puzzle;
+	char	c;
 
-#endif
+	c = i_to_c + 48;
+	write(1, &c, 1);
+}
+
+void	ft_write_newline(void)
+{
+	write(1, "\n", 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int	length;
+
+	length = 0;
+	while (str[length] != '\0')
+	{
+		length++;
+	}
+	write (1, str, length);
+}

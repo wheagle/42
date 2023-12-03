@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 13:44:51 by lfrench           #+#    #+#             */
-/*   Updated: 2023/12/02 17:04:30 by lfrench          ###   ########.fr       */
+/*   Updated: 2023/12/03 17:59:54 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,25 @@
 #include "puzzle.h"
 #include <stdio.h>
 
-void	display_grid(t_puzzle *grid)
+void	ft_write_int(int i_to_c);
+void	ft_write_newline(void);
+
+void	display_grid(t_puzzle *puzl)
 {
-	int	i; //rows
-	int	j; //cols
-	char c;
-	int k;
-	int half_size;
-	int row;
-	int col;
-	int pos;
+	int		i;
+	int		j;
+	char	c;
 
-	k = 0;
-	half_size = grid->size / 2;
-
-	while (k < grid->size * grid->size)
-	{
-
-		if (k < grid->size)
-		{
-			col = k % half_size;
-			pos = k / half_size;
-			c = grid->col_constraints[col][pos];
-			write(1, &c, 1);
-		}
-		else
-		{	
-			row = (k - grid->size) % half_size;
-			pos = (k - grid->size) / half_size;
-			c = grid->row_constraints[row][pos];
-			write(1, &c, 1);
-		}
-		k++;
-		c += 48;
-		write(1, &c, 1);
-	}
-	write(1, "\n", 1);
-	
 	i = 0;
-//	printf("%d\n", grid->size);
-	while (i < grid->size)
+	while (i < puzl->size)
 	{	
 		j = 0;
-		while (j < grid->size)
+		while (j < puzl->size)
 		{
-			c = grid->grid[i][j] + 48;
+			c = puzl->grid[i][j] + 48;
 			write(1, &c, 1);
 			j++;
-			if (j == grid->size)
+			if (j == puzl->size)
 			{
 				write(1, "\n", 1);
 			}
