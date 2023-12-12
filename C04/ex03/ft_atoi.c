@@ -1,77 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 10:50:38 by lfrench           #+#    #+#             */
-/*   Updated: 2023/12/12 11:17:09 by lfrench          ###   ########.fr       */
+/*   Created: 2023/12/12 11:19:24 by lfrench           #+#    #+#             */
+/*   Updated: 2023/12/12 13:31:17 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Write a function that converts the initial portion of the string pointed by 
-   str to its int representation
-   The string can start with an arbitray amount of white space 
-   (as determined by isspace(3))
-   The string can be followed by an arbitrary amount of + and - signs, 
-   - sign will change the sign of the int returned based on the number of - is 
-   odd or even. 
-   Finally the string can be followed by any numbers of the base 10.
-   Your function should read the string until the string stop following the 
-   rules and return the number found until now. 
-   You should not take care of overflow or underflow. result can be undefined 
-   in that case. 
-   Here’s an example of a program that prints the atoi return value:
-   $>./a.out " ---+--+1234ab567"
-   -1234
-   Here’s how it should be prototyped: */
+/* Create a function that displays a number in a base system in the terminal.
+   This number is given in the shape of an int, and the radix in the shape of a
+   string of characters.
+   The base-system contains all useable symbols to display that number:
+   0123456789 is the commonly used base system to represent decimal numbers
+   01 is a binary base system ;
+   0123456789ABCDEF an hexadecimal base system ;
+   poneyvif is an octal base system.
+   The function must handle negative numbers.
+   If there’s an invalid argument, nothing should be displayed. 
+   Examples of invalid arguments :
+   base is empty or size of 1;
+   base contains the same character twice ;
+   base contains + or - ;
+   Here’s how it should be prototyped :*/
 
-int	ft_atoi(char *str);
+#include <unistd.h>
 
-int	ft_atoi(char *str)
-{	
-	int	result;
-	int	sign;
-	int	i;
+void	ft_putnbr_base(int nbr, char *base);
+
+void	ft_putnbr_base(int nbr, char *base)
+{
+	unsigned int	i;
+	char			c;
 
 	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (base[i] != 0 && base[i] >= 33 && base[i] <= 126)
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		if (base[i] == base[i + 1] || base[i] == '-' || base[i] == '+')
+			return;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+//	if (i > 16)
+//		return;
+	if (nbr < 0)
 	{
-		result = result * 10 + str[i] - '0';
-		i++;
+		write(1, "-", 1);
+		nbr = -nbr;
 	}
-	return (result * sign);
-}
-/*
-#include <stdio.h>
-int	main()
-{
-    char *test_str1 = " ---+--+1234ab567";
-    char *test_str2 = "   +42";
-    char *test_str3 = "-0";
-    char *test_str4 = "2147483647";  // Max int value
-    char *test_str5 = "";
-    char *test_str6 = "Not a number 123";
-    char *test_str7 = "12345";
+	if (nbr >= i)
+		ft_putnbr_base(nbr / i, base);
 
-    printf("ft_atoi(\"%s\") = %d\n", test_str1, ft_atoi(test_str1));
-    printf("ft_atoi(\"%s\") = %d\n", test_str2, ft_atoi(test_str2));
-    printf("ft_atoi(\"%s\") = %d\n", test_str3, ft_atoi(test_str3));
-    printf("ft_atoi(\"%s\") = %d\n", test_str4, ft_atoi(test_str4));
-    printf("ft_atoi(\"%s\") = %d\n", test_str5, ft_atoi(test_str5));
-    printf("ft_atoi(\"%s\") = %d\n", test_str6, ft_atoi(test_str6));
-    printf("ft_atoi(\"%s\") = %d\n", test_str7, ft_atoi(test_str7));
+	write(1, &base[nbr % i], 1);
+}
+
+#include <stdio.h>
+int	main() 
+{
+    int number = 123456;
+    char *base = "0123456789ABCDEF";
+
+    printf("%d in base 16: ", number);
+    ft_putnbr_base(number, base);
+    printf("\n");
 
     return 0;
-}*/
+}
