@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/02/21 17:26:32 by lfrench          ###   ########.fr        #
+#    Updated: 2024/02/21 17:51:28 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
-#	ft_isprint.c \
+	ft_isprint.c \
 #	ft_strlen.c \
 #	ft_memset.c \
 #	ft_bzero.c \

@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 17:24:02 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/21 17:50:43 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,18 @@ int	main(void)
 	printf("%d\n", ft_isascii('\\'));
 	printf("Is 255 ascii? ");
 	printf("%d\n", ft_isascii(255));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_isprint:\n");
+	printf("Is \'Q\' print? ");
+	printf("%d\n", ft_isprint('Q'));
+	printf("Is \'2\' print? ");
+	printf("%d\n", ft_isprint('2'));
+	printf("Is \'\\\' print? ");
+	printf("%d\n", ft_isprint('\\'));
+	printf("Is 255 print? ");
+	printf("%d\n", ft_isprint(255));
 	printf("----------------\n\n");
 
 	return (1);
