@@ -6,46 +6,21 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:07:32 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/19 15:16:11 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/21 12:10:16 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Create a function that returns 1 if the string given as a parameter 
-   contains only alphabetical characters, and 0 if it contains any other 
-   character. It should return 1 if str is empty. */
+/* isalpha() checks for an alphabetic character; in the standard "C" locale, 
+   it is equivalent to (isupper(c) || islower(c)).  In some locales, there may 
+   be additional characters for which isalpha() is true—letters which are 
+   neither uppercase nor lowercase. */
 
-int	ft_isalpha(char *str);
+int	ft_isalpha(int c);
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
-	{
-		if (str[i] < 65 || 122 < str[i])
-			return (0);
-		if (str[i] > 91 && 96 > str[i])
-			return (0);
-		i++;
-	}
-	return (1);
+	if (c < 65 || 122 < c || (c > 90 && 97 > c))
+		return (0);
+	else
+		return (1);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	str_is_not_alpha[] = "Hello, World!";
-	char	isalpha[] = "HelloWorld";
-
-	if (ft_isalpha(str_is_not_alpha))
-		printf("Hello, World! is alphabetical.\n");
-	else 
-		printf("Hello, World! is not alphabetical.\n");
-
-	if (ft_isalpha(isalpha))
-		printf("HelloWorld is alphabetical.\n");
-	else 
-		printf("HelloWorld is not alphabetical.\n");
-	return (0);
-} */
