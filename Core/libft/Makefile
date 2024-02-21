@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/02/20 10:33:52 by lfrench          ###   ########.fr        #
+#    Updated: 2024/02/21 16:42:10 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,11 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) test_libft
 
 re: fclean $(NAME)
-	
-.PHONY: all clean fclean re
+
+test: all 
+	cc -o test_libft test_main.c libft.a
+
+.PHONY: all clean fclean re test
