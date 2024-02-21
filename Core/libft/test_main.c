@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 17:50:43 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/21 18:16:55 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,26 @@ int	main(void)
 	printf("%d\n", ft_isprint('\\'));
 	printf("Is 255 print? ");
 	printf("%d\n", ft_isprint(255));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_toupper:\n");
+	printf("a toupper() is: ");
+	printf("%c\n", ft_toupper('a'));
+	printf("2 toupper() is: ");
+	printf("%c\n", ft_toupper('2'));
+	printf("Z toupper() is: ");
+	printf("%c\n", ft_toupper('Z'));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_tolower:\n");
+	printf("a tolower() is: ");
+	printf("%c\n", ft_tolower('a'));
+	printf("2 tolower() is: ");
+	printf("%c\n", ft_tolower('2'));
+	printf("Z tolower() is: ");
+	printf("%c\n", ft_tolower('Z'));
 	printf("----------------\n\n");
 
 	return (1);

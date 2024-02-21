@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
+/*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 10:37:28 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 18:13:09 by lfrench          ###   ########.fr       */
+/*   Created: 2024/02/21 18:00:23 by lfrench           #+#    #+#             */
+/*   Updated: 2024/02/21 18:02:37 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+/* These functions convert lowercase letters to uppercase, and vice versa. */
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
 int	ft_toupper(int c);
-int	ft_tolower(int c);
 
-#endif
+int	ft_toupper(int c)
+{
+	if (97 <= c && c <= 122)
+		c = c - 32;
+	return (c);
+}
