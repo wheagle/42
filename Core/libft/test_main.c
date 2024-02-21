@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 17:11:45 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/21 17:24:02 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,18 @@ int	main(void)
 	printf("%d\n", ft_isalnum('2'));
 	printf("Is \'\\\' alnum? ");
 	printf("%d\n", ft_isalnum('\\'));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_isascii:\n");
+	printf("Is \'Q\' ascii? ");
+	printf("%d\n", ft_isascii('Q'));
+	printf("Is \'2\' ascii? ");
+	printf("%d\n", ft_isascii('2'));
+	printf("Is \'\\\' ascii? ");
+	printf("%d\n", ft_isascii('\\'));
+	printf("Is 255 ascii? ");
+	printf("%d\n", ft_isascii(255));
 	printf("----------------\n\n");
 
 	return (1);
