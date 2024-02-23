@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 14:40:01 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 14:53:55 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,16 @@ int	main(void)
 //	printf("%s\n", ft_strrchr("12X4X6", 'X'));
 	printf("NULL in \'12X4X6\' is: ");
 	printf("%s\n", ft_strrchr("12X4X6", '\0'));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_strlen:\n");
+	printf("\'12X4X6\' length is: ");
+	printf("%zu\n", ft_strlen("12X4X6"));
+//	printf("X in \'12X4X6\' is: ");
+//	printf("%s\n", ft_strrchr("12X4X6", 'X'));
+	printf("\'12X\' length is: ");
+	printf("%zu\n", ft_strlen("12X"));
 	printf("----------------\n\n");
 
 	return (1);
