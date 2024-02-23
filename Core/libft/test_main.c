@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 16:28:21 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 16:55:32 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,33 @@ int	main(void)
 	printf("ft_strlcpy returns %zu\n", ft_strlcpy(str6, str5, size2));
 	printf("str2 is \"%s\"\n", str6);
 	printf("----------------\n\n");
-	
+
+    char str11[] = "Hello, world!";
+    char to_find1[] = "world";
+    char to_find2[] = "planet";
+    char to_find3[] = "";
+	printf("----------------\n");
+	printf("Testing ft_strnstr:\n");
+	printf("str is '%s'\n", str11);
+    // Test case 1: Substring found
+    char *result1 = ft_strnstr(str11, to_find1, 14);
+    if (result1)
+        printf("Found substring: '%s'\n", result1);
+    else
+        printf("Substring '%s' not found.\n", to_find1);
+    // Test case 2: Substring not found
+    char *result2 = ft_strnstr(str11, to_find2, 14);
+    if (result2)
+        printf("Found substring: '%s'\n", result2);
+    else
+        printf("Substring '%s' not found.\n", to_find2);
+    // Test case 3: Empty substring
+    char *result3 = ft_strnstr(str11, to_find3, 14);
+    if (result3)
+        printf("Found empty substring at: '%s'\n", result3);
+    else
+        printf("Empty substring not found.\n");
+	printf("----------------\n\n");
+
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/02/23 16:24:22 by lfrench          ###   ########.fr        #
+#    Updated: 2024/02/23 16:50:33 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = ft_atoi.c \
 	ft_strlcpy.c \
 	ft_strlen.c \
 	ft_strncmp.c \
+	ft_strnstr.c \
 	ft_strrchr.c \
 	ft_isprint.c \
 	ft_toupper.c \
@@ -32,7 +33,6 @@ SRCS = ft_atoi.c \
 #	ft_memmove.c \
 #	ft_memchr.c \
 #	ft_memcmp.c \
-#	ft_strnstr.c \
 #	ft_calloc.c \
 #	ft_strdup.c \
 #	ft_substr.c \
