@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/02/23 14:49:35 by lfrench          ###   ########.fr        #
+#    Updated: 2024/02/23 15:11:02 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = ft_isalpha.c \
 	ft_isascii.c \
 	ft_strchr.c \
 	ft_strlen.c \
+	ft_strncmp.c \
 	ft_strrchr.c \
 	ft_isprint.c \
 	ft_toupper.c \
@@ -28,7 +29,6 @@ SRCS = ft_isalpha.c \
 #	ft_memmove.c \
 #	ft_strlcpy.c \
 #	ft_strlcat.c \
-#	ft_strncmp.c \ 
 #	ft_memchr.c \
 #	ft_memcmp.c \
 #	ft_strnstr.c \

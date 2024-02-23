@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 14:53:55 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 15:12:36 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,16 @@ int	main(void)
 //	printf("%s\n", ft_strrchr("12X4X6", 'X'));
 	printf("\'12X\' length is: ");
 	printf("%zu\n", ft_strlen("12X"));
+	printf("----------------\n\n");
+
+	char	str1[] = "Hello";
+	char	str2[] = "Hello";
+	char	str3[] = "Helln";
+	char	str4[] = "World";
+	printf("----------------\n");
+	printf("%s+%s, size %u: %d\n", str1, str2, 3, ft_strncmp(str1, str2, 3));
+	printf("%s+%s, size %u: %d\n", str1, str3, 5, ft_strncmp(str1, str3, 5));
+	printf("%s+%s, size %u: %d\n", str1, str4, 3, ft_strncmp(str1, str4, 3));
 	printf("----------------\n\n");
 
 	return (1);
