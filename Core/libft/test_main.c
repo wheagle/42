@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 15:41:50 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 16:28:21 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int	main(void)
     printf("ft_atoi(\"%s\") = %d\n", test_str7, ft_atoi(test_str7));
 	printf("----------------\n\n");
 
-	int		size;
+	size_t	size;
 	char	src[] = "source";
 	char	dest[12] = "dest";
 	size = ft_strlcat(dest, src, 9);
@@ -157,8 +157,19 @@ int	main(void)
 	printf("\"source\" appended to \"dest\"");
 	printf(" limited by size 9 is:\n");
 	printf("%s\n", dest);
-	printf("Return is: %u\n", size);
+	printf("Return is: %zu\n", size);
 	printf("----------------\n\n");
 
+	char	str5[] = "Hello, World";
+	size_t	size2 = 5;
+	char	str6[size];
+	printf("----------------\n");
+	printf("Testing ft_strlcpy:\n");
+	printf("str1 is \"%s\"\n", str5);
+	printf("size is %zu\n", size2);
+	printf("ft_strlcpy returns %zu\n", ft_strlcpy(str6, str5, size2));
+	printf("str2 is \"%s\"\n", str6);
+	printf("----------------\n\n");
+	
 	return (1);
 }
