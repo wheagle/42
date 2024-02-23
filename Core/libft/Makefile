@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/02/23 16:50:33 by lfrench          ###   ########.fr        #
+#    Updated: 2024/02/23 17:19:41 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = ft_atoi.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
+	ft_putchar_fd.c \
 	ft_strchr.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
@@ -42,7 +43,6 @@ SRCS = ft_atoi.c \
 #	ft_itoa.c \
 #	ft_strmapi.c \
 #	ft_striteri.c \
-#	ft_putchar_fd.c \
 #	ft_putstr_fd.c \
 #	ft_putendl_fd.c \
 #	ft_putnbr_fd.c \
@@ -60,6 +60,7 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) test_libft
+	$(RM) test_output.txt
 
 re: fclean $(NAME)
 

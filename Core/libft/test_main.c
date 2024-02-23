@@ -6,12 +6,14 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 16:55:32 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 17:15:34 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* A main() function for testing the functions in libft */
 
+#include <unistd.h>  // For write() and file descriptor macros
+#include <fcntl.h>   // For file control options
 #include <stdio.h>
 #include "libft.h"
 
@@ -198,5 +200,23 @@ int	main(void)
         printf("Empty substring not found.\n");
 	printf("----------------\n\n");
 
-	return (1);
+	printf("----------------\n");
+	printf("Testing ft_putchar_fd:\n");
+    // Test 1: Writing to standard output
+    ft_putstr_fd("Hello, World!\n", STDOUT_FILENO);
+    // Test 2: Writing to standard error
+    ft_putstr_fd("This is an error message.\n", STDERR_FILENO);
+    // Test 3: Writing to a file
+    int file_fd = open("test_output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (file_fd == -1)
+    {
+        // Handle error in opening file
+        ft_putstr_fd("Failed to open file.\n", STDERR_FILENO);
+        return 1;
+    }
+    ft_putstr_fd("This is a message in a file.\n", file_fd);
+    close(file_fd);  // Always remember to close the file descriptor
+	printf("----------------\n\n");
+
+	return (0);
 }
