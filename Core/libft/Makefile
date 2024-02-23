@@ -6,13 +6,14 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/02/23 15:11:02 by lfrench          ###   ########.fr        #
+#    Updated: 2024/02/23 15:23:15 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
-SRCS = ft_isalpha.c \
+SRCS = ft_atoi.c \
+	ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
@@ -32,7 +33,6 @@ SRCS = ft_isalpha.c \
 #	ft_memchr.c \
 #	ft_memcmp.c \
 #	ft_strnstr.c \
-#	ft_atoi.c \
 #	ft_calloc.c \
 #	ft_strdup.c \
 #	ft_substr.c \

@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 15:12:36 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 15:26:15 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,10 +124,30 @@ int	main(void)
 	char	str3[] = "Helln";
 	char	str4[] = "World";
 	printf("----------------\n");
+	printf("Testing ft_strncmp:\n");
 	printf("%s+%s, size %u: %d\n", str1, str2, 3, ft_strncmp(str1, str2, 3));
 	printf("%s+%s, size %u: %d\n", str1, str3, 5, ft_strncmp(str1, str3, 5));
 	printf("%s+%s, size %u: %d\n", str1, str4, 3, ft_strncmp(str1, str4, 3));
 	printf("----------------\n\n");
+
+    char *test_str1 = " ---+--+1234ab567";
+    char *test_str2 = "   +42";
+    char *test_str3 = "-0";
+    char *test_str4 = "2147483647";  // Max int value
+    char *test_str5 = "";
+    char *test_str6 = "Not a number 123";
+    char *test_str7 = "12345";
+	printf("----------------\n");
+	printf("Testing ft_atoi:\n");
+    printf("ft_atoi(\"%s\") = %d\n", test_str1, ft_atoi(test_str1));
+    printf("ft_atoi(\"%s\") = %d\n", test_str2, ft_atoi(test_str2));
+    printf("ft_atoi(\"%s\") = %d\n", test_str3, ft_atoi(test_str3));
+    printf("ft_atoi(\"%s\") = %d\n", test_str4, ft_atoi(test_str4));
+    printf("ft_atoi(\"%s\") = %d\n", test_str5, ft_atoi(test_str5));
+    printf("ft_atoi(\"%s\") = %d\n", test_str6, ft_atoi(test_str6));
+    printf("ft_atoi(\"%s\") = %d\n", test_str7, ft_atoi(test_str7));
+	printf("----------------\n\n");
+
 
 	return (1);
 }

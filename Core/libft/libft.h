@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:37:28 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 15:03:37 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 15:20:45 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+int		ft_atoi(char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
