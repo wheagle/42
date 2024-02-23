@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 18:16:55 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 14:40:01 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,26 @@ int	main(void)
 	printf("%c\n", ft_tolower('2'));
 	printf("Z tolower() is: ");
 	printf("%c\n", ft_tolower('Z'));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_strchr:\n");
+	printf("X in \'12X4X6\' is: ");
+	printf("%s\n", ft_strchr("12X4X6", 'X'));
+//	printf("X in \'12X4X6\' is: ");
+//	printf("%s\n", ft_strchr("12X4X6", 'X'));
+	printf("NULL in \'12X4X6\' is: ");
+	printf("%s\n", ft_strchr("12X4X6", '\0'));
+	printf("----------------\n\n");
+
+	printf("----------------\n");
+	printf("Testing ft_strrchr:\n");
+	printf("X in \'12X4X6\' is: ");
+	printf("%s\n", ft_strrchr("12X4X6", 'X'));
+//	printf("X in \'12X4X6\' is: ");
+//	printf("%s\n", ft_strrchr("12X4X6", 'X'));
+	printf("NULL in \'12X4X6\' is: ");
+	printf("%s\n", ft_strrchr("12X4X6", '\0'));
 	printf("----------------\n\n");
 
 	return (1);

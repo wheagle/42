@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 10:37:28 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 14:34:54 by lfrench          ###   ########.fr       */
+/*   Created: 2024/02/23 14:00:11 by lfrench           #+#    #+#             */
+/*   Updated: 2024/02/23 14:37:35 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+/* The strrchr() function returns a pointer to the last occurrence of  the  
+   character  c  in  the string s. */
 
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isascii(int c);
-int		ft_isdigit(int c);
-int		ft_isprint(int c);
-char	*ft_strchr(const char *s, int c);
+#include <stddef.h>
+
 char	*ft_strrchr(const char *s, int c);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
 
-#endif
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	if (c == '\0')
+		return (char *)&s[i];
+	while (i >= 0)
+	{
+		if (s[i] == c)
+			return (char *)&s[i];
+		i--;
+	}
+	return NULL;
+}
