@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 15:26:15 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/02/23 15:41:50 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,17 @@ int	main(void)
     printf("ft_atoi(\"%s\") = %d\n", test_str7, ft_atoi(test_str7));
 	printf("----------------\n\n");
 
+	int		size;
+	char	src[] = "source";
+	char	dest[12] = "dest";
+	size = ft_strlcat(dest, src, 9);
+	printf("----------------\n");
+	printf("Testing ft_strlcat:\n");
+	printf("\"source\" appended to \"dest\"");
+	printf(" limited by size 9 is:\n");
+	printf("%s\n", dest);
+	printf("Return is: %u\n", size);
+	printf("----------------\n\n");
 
 	return (1);
 }
