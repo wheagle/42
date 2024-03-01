@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:02:40 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/01 18:32:46 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/01 18:48:46 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putnbr_fd(n / 10, fd);
 		str[0] = n % 10 + 0;
-		str[1] = '\n';
+		str[1] = '\0';
 		ft_putchar_fd(str, fd);
 	}
 	else
 	{	
 		str[0] = n + '0';
-		str[1] = '\n';
+		str[1] = '\0';
 		ft_putchar_fd(str, fd);
 	}
 }
