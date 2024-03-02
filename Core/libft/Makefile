@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/01 18:07:19 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/02 15:16:31 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ fclean: clean
 	$(RM) test_output.txt
 	$(RM) test_output2.txt
 	$(RM) test_output3.txt
+	$(RM) test_output4.txt
 
 re: fclean $(NAME)
 

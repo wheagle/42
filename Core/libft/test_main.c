@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/01 18:10:04 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:15:19 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,22 +203,22 @@ int	main(void)
 	printf("----------------\n");
 	printf("Testing ft_putchar_fd:\n");
     // Test 1: Writing to standard output
-    ft_putchar_fd("H", STDOUT_FILENO);
-    ft_putchar_fd("\n", STDOUT_FILENO);
+    ft_putchar_fd('H', STDOUT_FILENO);
+    ft_putchar_fd('\n', STDOUT_FILENO);
     // Test 2: Writing to standard error
-    ft_putchar_fd("e", STDERR_FILENO);
-    ft_putchar_fd("\n", STDERR_FILENO);
+    ft_putchar_fd('e', STDERR_FILENO);
+    ft_putchar_fd('\n', STDERR_FILENO);
     // Test 3: Writing to a file
     int file_fd = open("test_output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (file_fd == -1)
     {
         // Handle error in opening file
-        ft_putchar_fd("F", STDERR_FILENO);
-    	ft_putchar_fd("\n", STDERR_FILENO);
+        ft_putchar_fd('F', STDERR_FILENO);
+    	ft_putchar_fd('\n', STDERR_FILENO);
         return 1;
     }
-    ft_putchar_fd("T", file_fd);
-    ft_putchar_fd("\n", file_fd);
+    ft_putchar_fd('T', file_fd);
+    ft_putchar_fd('\n', file_fd);
     close(file_fd);  // Always remember to close the file descriptor
 	// Read from the file
     file_fd = open("test_output.txt", O_RDONLY);
@@ -278,10 +278,12 @@ int	main(void)
 	printf("Testing ft_putnbr_fd:\n");
     // Test 1: Writing to standard output
     ft_putnbr_fd(12345, STDOUT_FILENO);
+	printf("\n");
     // Test 2: Writing to standard error
     ft_putnbr_fd(54321, STDERR_FILENO);
+	printf("\n");
     // Test 3: Writing to a file
-    file_fd = open("test_output3.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    file_fd = open("test_output4.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (file_fd == -1)
     {
         // Handle error in opening file
@@ -290,11 +292,12 @@ int	main(void)
     }
     ft_putnbr_fd(1337, file_fd);
     close(file_fd);  // Always remember to close the file descriptor
-	file_fd = open("test_output3.txt", O_RDONLY);
+	file_fd = open("test_output4.txt", O_RDONLY);
 	char read_char4;
 	while (read(file_fd, &read_char4, 1) == 1)
 		printf("%c", read_char4);
     close(file_fd);  // Always remember to close the file descriptor
+	printf("\n");
 	printf("----------------\n\n");
 
 	return (0);
