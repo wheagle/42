@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:02:53 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:49:26 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <fcntl.h>   // For file control options
 #include <stdio.h>
 #include "libft.h"
+
+void callback(unsigned int index, char *c); 
 
 int	main(void)
 {
@@ -303,5 +305,20 @@ int	main(void)
 	printf("\n");
 	printf("----------------\n\n");
 
+	char striteri[] = "hello world";
+	printf("----------------\n");
+	printf("Testing ft_striteri:\n");
+	printf("Original string is %s\n", striteri);
+	ft_striteri(striteri, &callback);
+	printf("Modified string is %s\n", striteri);
+	printf("----------------\n\n");
+
 	return (0);
+}
+
+void callback(unsigned int index, char *c) 
+{
+    // Example: convert lowercase characters to uppercase
+    if (*c >= 'a' && *c <= 'z') 
+        *c = *c - ('a' - 'A');
 }
