@@ -6,14 +6,14 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:37:28 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 15:33:15 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 20:30:47 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# include <stddef.h>
 
 int		ft_atoi(char *str);
 int		ft_isalnum(int c);

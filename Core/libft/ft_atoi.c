@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 10:50:38 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 15:18:43 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 20:26:03 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@
    in that case. 
    Here’s an example of a program that prints the atoi return value:
    $>./a.out " ---+--+1234ab567"
-   -1234
-   Here’s how it should be prototyped: */
-
-int	ft_atoi(char *str);
+   -1234 */
 
 int	ft_atoi(char *str)
-{	
+{
 	int	result;
 	int	sign;
 	int	i;
