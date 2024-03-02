@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:06:07 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 16:21:27 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:25:28 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
    occurred. If loss of data matters, the caller must either check the 
    arguments before the call, or test the function return value. */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+#include <stddef.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	src_length;
+	size_t	i;
+	size_t	src_length;
 
 	i = 0;
 	src_length = 0;

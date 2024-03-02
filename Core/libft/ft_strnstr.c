@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:32:26 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 16:52:01 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:09:51 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
    first occurrence of little is returned. */
 
 #include <stddef.h>
-
-char	*ft_strnstr(const char *big, const char *little, size_t len);
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

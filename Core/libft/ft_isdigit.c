@@ -6,13 +6,11 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:07:32 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 12:10:31 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 20:37:06 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* isdigit() checks for a digit (0 through 9). */
-
-int	ft_isdigit(int c);
 
 int	ft_isdigit(int c)
 {

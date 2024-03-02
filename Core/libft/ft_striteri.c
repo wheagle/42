@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:31:44 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 15:47:23 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:08:01 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ address to ’f’ to be modified if necessary. */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		length;
-	int		index;
-	char	*temp;
+	unsigned int	length;
+	unsigned int	index;
+	char			*temp;
 
 	length = 0;
 	index = 0;
@@ -31,7 +31,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		length = ft_strlen(s);
 		while (index < length)
 		{
-			(*f)(index, *temp);
+			(*f)(index, temp);
 			temp++;
 			index++;
 		}

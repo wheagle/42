@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 15:15:19 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:02:53 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 int	main(void)
 {
 	int	result;
+
+	fflush(stdout);
+	fflush(stderr);
 
 	printf("\n----------------\n");
 	printf("Testing ft_isalpha:\n");
@@ -95,8 +98,6 @@ int	main(void)
 	printf("Testing ft_strchr:\n");
 	printf("X in \'12X4X6\' is: ");
 	printf("%s\n", ft_strchr("12X4X6", 'X'));
-//	printf("X in \'12X4X6\' is: ");
-//	printf("%s\n", ft_strchr("12X4X6", 'X'));
 	printf("NULL in \'12X4X6\' is: ");
 	printf("%s\n", ft_strchr("12X4X6", '\0'));
 	printf("----------------\n\n");
@@ -105,8 +106,6 @@ int	main(void)
 	printf("Testing ft_strrchr:\n");
 	printf("X in \'12X4X6\' is: ");
 	printf("%s\n", ft_strrchr("12X4X6", 'X'));
-//	printf("X in \'12X4X6\' is: ");
-//	printf("%s\n", ft_strrchr("12X4X6", 'X'));
 	printf("NULL in \'12X4X6\' is: ");
 	printf("%s\n", ft_strrchr("12X4X6", '\0'));
 	printf("----------------\n\n");
@@ -115,8 +114,6 @@ int	main(void)
 	printf("Testing ft_strlen:\n");
 	printf("\'12X4X6\' length is: ");
 	printf("%zu\n", ft_strlen("12X4X6"));
-//	printf("X in \'12X4X6\' is: ");
-//	printf("%s\n", ft_strrchr("12X4X6", 'X'));
 	printf("\'12X\' length is: ");
 	printf("%zu\n", ft_strlen("12X"));
 	printf("----------------\n\n");
@@ -202,11 +199,12 @@ int	main(void)
 
 	printf("----------------\n");
 	printf("Testing ft_putchar_fd:\n");
-    // Test 1: Writing to standard output
+	// Test 1: Writing to standard output
+	fflush(stdout);
     ft_putchar_fd('H', STDOUT_FILENO);
     ft_putchar_fd('\n', STDOUT_FILENO);
     // Test 2: Writing to standard error
-    ft_putchar_fd('e', STDERR_FILENO);
+	ft_putchar_fd('e', STDERR_FILENO);
     ft_putchar_fd('\n', STDERR_FILENO);
     // Test 3: Writing to a file
     int file_fd = open("test_output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -233,13 +231,16 @@ int	main(void)
     // Test 1: Writing to standard output
     ft_putstr_fd("Hello, World!\n", STDOUT_FILENO);
     // Test 2: Writing to standard error
-    ft_putstr_fd("This is an error message.\n", STDERR_FILENO);
+    fflush(stderr);
+	ft_putstr_fd("This is an error message.\n", STDERR_FILENO);
+	fflush(stderr);
     // Test 3: Writing to a file
     file_fd = open("test_output2.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (file_fd == -1)
     {
         // Handle error in opening file
         ft_putstr_fd("Failed to open file.\n", STDERR_FILENO);
+		fflush(stderr);
         return 1;
     }
     ft_putstr_fd("This is a message in a file.\n", file_fd);
@@ -263,6 +264,7 @@ int	main(void)
     {
         // Handle error in opening file
         ft_putendl_fd("Failed to open file.", STDERR_FILENO);
+		fflush(stderr);
         return 1;
     }
     ft_putendl_fd("This is a message in a file.", file_fd);
@@ -277,7 +279,8 @@ int	main(void)
 	printf("----------------\n");
 	printf("Testing ft_putnbr_fd:\n");
     // Test 1: Writing to standard output
-    ft_putnbr_fd(12345, STDOUT_FILENO);
+    fflush(stdout);
+	ft_putnbr_fd(12345, STDOUT_FILENO);
 	printf("\n");
     // Test 2: Writing to standard error
     ft_putnbr_fd(54321, STDERR_FILENO);

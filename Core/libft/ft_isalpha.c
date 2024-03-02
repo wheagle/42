@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:07:32 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/21 12:10:16 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 20:36:36 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
    it is equivalent to (isupper(c) || islower(c)).  In some locales, there may 
    be additional characters for which isalpha() is true—letters which are 
    neither uppercase nor lowercase. */
-
-int	ft_isalpha(int c);
 
 int	ft_isalpha(int c)
 {

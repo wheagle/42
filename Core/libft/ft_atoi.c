@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 10:50:38 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 20:26:03 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:15:05 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@
    $>./a.out " ---+--+1234ab567"
    -1234 */
 
+#include <stddef.h>
+
 int	ft_atoi(char *str)
 {
-	int	result;
-	int	sign;
-	int	i;
+	int		result;
+	int		sign;
+	size_t	i;
 
 	i = 0;
 	sign = 1;

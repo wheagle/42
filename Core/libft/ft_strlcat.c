@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:46:51 by lfrench           #+#    #+#             */
-/*   Updated: 2024/02/23 15:31:41 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/02 21:24:27 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@
    not a proper “C” string).  The check exists to prevent potential security
    problems in incorrect code.*/
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
+#include <stddef.h>
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	unsigned int	dest_len;
-	unsigned int	src_len;
-	unsigned int	j;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	j;
 
 	dest_len = 0;
 	src_len = 0;
