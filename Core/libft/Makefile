@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/02 15:16:31 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/02 15:33:39 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = ft_atoi.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
 	ft_strchr.c \
+	ft_striteri.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
 	ft_strlen.c \
@@ -45,7 +46,6 @@ SRCS = ft_atoi.c \
 #	ft_split.c \
 #	ft_itoa.c \
 #	ft_strmapi.c \
-#	ft_striteri.c \
 
 OBJS = $(SRCS:.c=.o)
 
