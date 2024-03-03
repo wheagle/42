@@ -6,29 +6,15 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 10:50:38 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:15:05 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/03 12:07:51 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Write a function that converts the initial portion of the string pointed by 
-   str to its int representation
-   The string can start with an arbitray amount of white space 
-   (as determined by isspace(3))
-   The string can be followed by an arbitrary amount of + and - signs, 
-   - sign will change the sign of the int returned based on the number of - is 
-   odd or even. 
-   Finally the string can be followed by any numbers of the base 10.
-   Your function should read the string until the string stop following the 
-   rules and return the number found until now. 
-   You should not take care of overflow or underflow. result can be undefined 
-   in that case. 
-   Here’s an example of a program that prints the atoi return value:
-   $>./a.out " ---+--+1234ab567"
-   -1234 */
+/* See man atoi and strol */
 
 #include <stddef.h>
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		result;
 	int		sign;
@@ -37,9 +23,9 @@ int	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == ' ')
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			sign *= -1;

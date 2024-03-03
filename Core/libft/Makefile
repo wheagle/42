@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/02 15:33:39 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/03 11:55:49 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,16 +59,16 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) test_libft
-	$(RM) test_output.txt
-	$(RM) test_output2.txt
-	$(RM) test_output3.txt
-	$(RM) test_output4.txt
+	$(RM) test/test_libft
+	$(RM) test/test_output.txt
+	$(RM) test/test_output2.txt
+	$(RM) test/test_output3.txt
+	$(RM) test/test_output4.txt
 
 re: fclean $(NAME)
 
 test: re
-	cc -o test_libft test_main.c libft.a
-	./test_libft
+	cc -o test/test_libft test/test_main.c libft.a
+	./test/test_libft
 
 .PHONY: all clean fclean re test

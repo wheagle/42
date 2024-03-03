@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:25:02 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:49:26 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/03 11:56:25 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>  // For write() and file descriptor macros
 #include <fcntl.h>   // For file control options
 #include <stdio.h>
-#include "libft.h"
+#include "../libft.h"
 
 void callback(unsigned int index, char *c); 
 
