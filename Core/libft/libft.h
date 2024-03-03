@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 10:37:28 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/03 20:44:57 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/03 21:03:47 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 int		ft_atoi(const char *str);
 void	*ft_bzero(void *s, size_t n);

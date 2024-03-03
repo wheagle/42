@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:45:07 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/03 20:47:41 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/03 21:28:22 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,23 @@
    It returns NULL if insufficient memory was available, with errno set to 
    indicate the cause of the error. */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
+	char		*ptr_dest;
+	const char	*ptr_src;
+	char		*dest_start;
+
+	if (s == NULL)
+		return (NULL);
+	ptr_src = s;
+	ptr_dest = malloc(ft_strlen(s) + 1);
+	if (ptr_dest == NULL)
+		return (NULL);
+	dest_start = ptr_dest;
+	while (*ptr_src != '\0')
+		*ptr_dest++ = *ptr_src++;
+	*ptr_dest = '\0';
+	return (dest_start);
 }
