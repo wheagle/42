@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/03 12:18:53 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/03 13:16:32 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS = ft_atoi.c \
 	ft_strrchr.c \
 	ft_isprint.c \
 	ft_toupper.c \
-	ft_tolower.c \
+	ft_tolower.c
 #	ft_memset.c \
 #	ft_bzero.c \
 #	ft_memcpy.c \
@@ -49,7 +49,7 @@ SRCS = ft_atoi.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)	
@@ -71,4 +71,4 @@ re: fclean $(NAME)
 #	cc -o test/test_libft test/test_main.c libft.a
 #	./test/test_libft
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re
