@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:45:07 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/03 21:28:22 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/03 21:33:17 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char	*ft_strdup(const char *s)
 	const char	*ptr_src;
 	char		*dest_start;
 
-	if (s == NULL)
-		return (NULL);
 	ptr_src = s;
 	ptr_dest = malloc(ft_strlen(s) + 1);
 	if (ptr_dest == NULL)
