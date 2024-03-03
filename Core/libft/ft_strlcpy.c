@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:06:07 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:25:28 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/03 11:53:19 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 	src_length = 0;
 	while (src[src_length] != '\0')
 		src_length++;
-	if (size != 0)
+	if (size == 0)
+		return (src_length);
+	while (src[i] != '\0' && i < size - 1)
 	{
-		while (src[i] != '\0' && i < size)
-		{
-			dest[i] = src[i];
-			i++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
 	dest[i] = '\0';
 	return (src_length);
