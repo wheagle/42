@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/03 13:16:32 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/03 17:39:59 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = ft_atoi.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
+	ft_memset.c \
 	ft_putchar_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
@@ -32,7 +33,6 @@ SRCS = ft_atoi.c \
 	ft_isprint.c \
 	ft_toupper.c \
 	ft_tolower.c
-#	ft_memset.c \
 #	ft_bzero.c \
 #	ft_memcpy.c \
 #	ft_memmove.c \
