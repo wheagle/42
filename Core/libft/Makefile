@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/03 20:10:30 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/03 20:44:19 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS = ft_atoi.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
 	ft_strchr.c \
+	ft_strdup.c \
 	ft_striteri.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
@@ -39,7 +40,6 @@ SRCS = ft_atoi.c \
 	ft_isprint.c \
 	ft_toupper.c \
 	ft_tolower.c
-#	ft_strdup.c \
 #	ft_substr.c \
 #	ft_strjoin.c \
 #	ft_strtrim.c \
