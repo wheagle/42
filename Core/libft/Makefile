@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/04 17:19:11 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/04 20:57:58 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = ft_atoi.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
+	ft_split.c \
 	ft_strchr.c \
 	ft_strdup.c \
 	ft_striteri.c \
@@ -43,7 +44,6 @@ SRC = ft_atoi.c \
 	ft_isprint.c \
 	ft_toupper.c \
 	ft_tolower.c
-#	ft_split.c \
 #	ft_itoa.c \
 #	ft_strmapi.c \
 
