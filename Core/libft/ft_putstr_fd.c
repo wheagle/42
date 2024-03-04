@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:39:27 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:17:51 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:32:01 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != 0)
+	if (s == NULL)
+		return;
+	while (*s != '\0')
 	{
-		write (fd, &s[i], 1);
-		i++;
+		if (write (fd, s, 1) == -1)
+			return;
+		s++;
 	}
 }
