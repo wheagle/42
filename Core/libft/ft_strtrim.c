@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:20:05 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/04 18:09:04 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/04 18:31:48 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,25 @@
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s_trim;
-	size_t	i;
-	size_t	j;
 	size_t	start;
 	size_t	end;
+	size_t	trim_len;
 
-	match = 0;
-	if (s1 == NULL) //Check if s1 exists
+	if (s1 == NULL)
 		return (NULL);
-	s_trim = ft_strdup(s1); //Set s_trim to s1
-	if (set == NULL || *set == '\0') //If set is NULL or terminated
-		return (s_trim);
-	while (*s_trim != '\0') //Step through each char of s_trim
-	{
-		while (set[j] != '\0')
-		{
-			if (s_trim[i] == set[j]) //match found
-			{
-				start = i;
-				exit;
-			}
-			j++;
-		}
-		i++;
-	}
-
-	
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (s1[start] != '\0' && ft_strchr(set, s1[start]) != NULL)
+		start++;
+	while (end > start && ft_strchr(set, s1[end]) != NULL)
+		end--;
+	if (start > end)
+		return (ft_strdup(""));
+	trim_len = end - start + 1;
+	s_trim = (char *)malloc(trim_len + 1);
+	if (s_trim == NULL)
+		return (NULL);
+	ft_strncpy(s_trim, s1 + start, trim_len);
+	s_trim[trim_len] = '\0';
+	return (s_trim);	
 }
