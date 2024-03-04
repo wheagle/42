@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 16:32:26 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:09:51 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:22:11 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (big == NULL && len == 0)
+		return (NULL);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] != '\0' && i < len)

@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:46:51 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/02 21:24:27 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:20:21 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ size_t	ft_strlcat(char *dest, char *src, size_t size)
 
 	dest_len = 0;
 	src_len = 0;
-	while (dest[dest_len] != 0)
-		dest_len++;
 	while (src[src_len] != 0)
 		src_len++;
+	if (dest == NULL && size == 0)
+		return (src_len);
+	while (dest[dest_len] != 0)
+		dest_len++;
 	if (size <= dest_len)
 		return (size + src_len);
 	j = 0;

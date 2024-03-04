@@ -6,13 +6,13 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/03 20:44:19 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/04 12:03:14 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
-SRCS = ft_atoi.c \
+SRC = ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
 	ft_isalpha.c \
@@ -47,15 +47,15 @@ SRCS = ft_atoi.c \
 #	ft_itoa.c \
 #	ft_strmapi.c \
 
-OBJS = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)	
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)	
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -66,6 +66,10 @@ fclean: clean
 #	$(RM) test/test_output4.txt
 
 re: fclean $(NAME)
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 #test: re
 #	cc -o test/test_libft test/test_main.c libft.a
