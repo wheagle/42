@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/04 12:03:14 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/04 13:18:52 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,10 @@ SRC = ft_atoi.c \
 	ft_strncmp.c \
 	ft_strnstr.c \
 	ft_strrchr.c \
+	ft_substr.c \
 	ft_isprint.c \
 	ft_toupper.c \
 	ft_tolower.c
-#	ft_substr.c \
 #	ft_strjoin.c \
 #	ft_strtrim.c \
 #	ft_split.c \
@@ -59,6 +59,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) test/libft.so
 #	$(RM) test/test_libft
 #	$(RM) test/test_output.txt
 #	$(RM) test/test_output2.txt
