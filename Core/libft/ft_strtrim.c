@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:20:05 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/04 18:31:48 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/04 18:44:54 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end > start && ft_strchr(set, s1[end]) != NULL)
 		end--;
 	if (start > end)
-		return (ft_strdup(""));
-	trim_len = end - start + 1;
+		trim_len = 0;
+	else
+		trim_len = end - start + 1;
 	s_trim = (char *)malloc(trim_len + 1);
 	if (s_trim == NULL)
 		return (NULL);
-	ft_strncpy(s_trim, s1 + start, trim_len);
+	if (trim_len > 0)
+		ft_memcpy(s_trim, s1 + start, trim_len);
 	s_trim[trim_len] = '\0';
-	return (s_trim);	
+	return (s_trim);
 }
