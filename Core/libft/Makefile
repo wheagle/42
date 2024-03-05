@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/04 20:57:58 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/05 14:14:25 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = ft_atoi.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
 	ft_isascii.c \
+	ft_itoa.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_memcpy.c \
@@ -44,7 +45,6 @@ SRC = ft_atoi.c \
 	ft_isprint.c \
 	ft_toupper.c \
 	ft_tolower.c
-#	ft_itoa.c \
 #	ft_strmapi.c \
 
 OBJ = $(SRC:.c=.o)
