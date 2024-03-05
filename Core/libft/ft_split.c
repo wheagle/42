@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 20:58:36 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/05 13:13:04 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/05 13:29:15 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,22 @@ char	**ft_split(char const *s, char c)
 size_t	ft_count_words(char const *s, char c)
 {
 	size_t	word_count;
-	char	*str;
-	char	*prev;
+	int		is_word;
 
 	word_count = 0;
-	str = ft_strdup(s);
+	is_word = 0;
 	//Step through *str and count the words
 	//Check for repeating c
-	while (*str == c) //skip initial delimiters, str now at first non-delimiter, maybe a word
-		str++;
-	while (*str != '\0') //Until str ends
+	while (*s)
 	{
-		prev = ft_strdup(str); //set prev to the start of first word
-		while (ft_strchr(str, c) > prev) //while the next delimiter is more than one char way
+		if (*s != c && is_word == 0)
 		{
-			word_count++; //increment word count
-			str = ft_strchr(str, c); //move str to delimiter
-			while (*str == c) //move str past any repeating delimiters
-				str++; 
+			is_word = 1;
+			word_count++;
 		}
+		else if (*s == c)
+			is_word = 0;
+		s++;
 	}
 	return (word_count);
 }
