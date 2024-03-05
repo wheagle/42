@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 14:14:55 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/05 14:44:58 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/05 16:30:57 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,38 @@ static size_t	get_int_len(int n);
 
 char	*ft_itoa(int n)
 {
-	char	*a; //the char representation of the int
-	size_t	len;
+	char			*a;
+	unsigned int	len;
+	unsigned int	nbr;
 
 	if (n == INT_MIN)
-		len = get_int_len((unsigned int)INT_MAX) + 1;
+		nbr = (unsigned int)INT_MAX + 1;
+	else if (n < 0)
+		nbr = (unsigned int)(-n);
 	else
-		if (n < 0)
-			len = get_int_len((unsigned int)(-n)) + 1;
-		else
-			len = get_int_len((unsigned int)n);
+		nbr = (unsigned int)n;
+	len = get_int_len(nbr);
 	a = (char *)malloc(sizeof(char) * (len + 1));
 	if (a == NULL)
 		return (NULL);
 	if (n == INT_MIN)
-		a[0] = '-';
-	else if (n < 0)
+		ft_strlcpy(a, "-2147483648", 12);
+	else
 	{
-		a[0] = '-';
-		n = -n;
-	}
-	if (n == 0)
-		a[0] = '0';
-	while (n != 0)
-	{
-		if (n > 0)
+		if (n < 0)
+		{
+			a[0] = '-';
+			n = -n;
+		}
+		else if (n == 0)
+			a[0] = '0';
+		a[len] = '\0';
+		while (n != 0)
+		{
 			a[--len] = (n % 10) + '0';
-		else
-			a[--len] = -(n % 10) + '0';
-		n /= 10;
+			n /= 10;
+		}
 	}
-	a[len] = '\0';
 	return (a);
 }
 
@@ -61,13 +62,10 @@ static size_t	get_int_len(int n)
 {
 	size_t	len;
 
-	len = 1;
-	if (n < 0)
-	{
-		len++;
-		n = -n;
-	}
-	while (n >= 10)
+	len = 0;
+	if (n == 0)
+		len = 1;
+	while (n != 0)
 	{
 		len++;
 		n /= 10;
