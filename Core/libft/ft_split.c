@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 20:58:36 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/05 13:29:15 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/05 13:34:01 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,17 @@ char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	char	*s_new;
-	size_t	length;
+	size_t	word_count;
 
-	if (s == NULL || *s == '\0')
+	word_count = ft_count_words(s, c);
+	strs = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (strs == NULL)
 		return (NULL);
-	length = ft_strchr(s, (int)c) - s;
 
+
+
+	strs[word_count] = NULL;
+	return (strs);
 }
 
 size_t	ft_count_words(char const *s, char c)
