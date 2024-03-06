@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 14:14:55 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/06 21:33:53 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/06 21:40:15 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 #include "libft.h"
 #include <limits.h>
 
+static void		fill_string_from_int(int n, char *a, size_t len);
 static size_t	get_int_len(int n);
 
 char	*ft_itoa(int n)
 {
 	char			*a;
 	size_t			len;
-	unsigned int	nbr;
 
 	len = get_int_len(n);
 	a = (char *)malloc(sizeof(char) * (len + 1));
@@ -36,18 +36,7 @@ char	*ft_itoa(int n)
 		a[0] = '0';
 	else
 	{
-		if (n < 0)
-		{
-			a[0] = '-';
-			nbr = -n;
-		}
-		else
-			nbr = n;
-		while (nbr != 0)
-		{
-			a[--len] = (nbr % 10) + '0';
-			nbr /= 10;
-		}
+		fill_string_from_int(n, a, len);
 	}
 	return (a);
 }
@@ -65,4 +54,22 @@ static size_t	get_int_len(int n)
 		n /= 10;
 	}
 	return (len);
+}
+
+static void	fill_string_from_int(int n, char *a, size_t len)
+{
+	unsigned int	nbr;
+
+	if (n < 0)
+	{
+		a[0] = '-';
+		nbr = -n;
+	}
+	else
+		nbr = n;
+	while (nbr != 0)
+	{
+		a[--len] = (nbr % 10) + '0';
+		nbr /= 10;
+	}
 }
