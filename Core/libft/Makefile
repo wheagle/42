@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/06 22:34:18 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/06 23:25:23 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,8 @@ SRC = ft_atoi.c \
 	ft_tolower.c
 
 BONUS_SRC = ft_lstnew.c \
-#			ft_lstadd_front.c \
-#			ft_lstsize.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
 #			ft_lstlast.c \
 #			ft_lstadd_back.c \
 #			ft_lstdelone.c \
