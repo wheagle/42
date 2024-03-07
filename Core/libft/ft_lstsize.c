@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 23:25:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/03/06 23:29:01 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/03/07 00:38:06 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
 	if (lst)
 	{
-		while (lst->next != NULL)
+		while (lst != NULL)
 		{
-			lst++;
+			lst = lst->next;
 			len++;
 		}
 	}
-	return (len)
+	return (len);
 }
