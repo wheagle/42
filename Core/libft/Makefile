@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/07 01:13:10 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/07 01:17:51 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ BONUS_SRC = ft_lstnew.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
-#			ft_lstmap.c
+			ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
