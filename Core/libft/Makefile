@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42luxembourg.lu>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/03/07 01:17:51 by lfrench          ###   ########.fr        #
+#    Updated: 2024/03/07 12:16:55 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,13 +71,13 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) test/libft.so
+	$(RM) libft.so
 
 re: fclean $(NAME)
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS_SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BONUS_OBJ)
 
 bonus: $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ)	
