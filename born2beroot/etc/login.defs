@@ -1,0 +1,3 @@
+pass_max_days 30
+pass_min_days 2
+pass_warn_age 7
