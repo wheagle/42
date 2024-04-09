@@ -52,6 +52,7 @@ void	create_snips(t_list **line_snip, int fd)
 		}
 		buffer[chars_read] = '\0';
 		add_line_snip(line_snip, buffer);
+		//free(buffer);
 	}
 }
 
