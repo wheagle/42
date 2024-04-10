@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 19:35:42 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/09 21:34:44 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/10 19:08:40 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	clean_snips(t_list **line_snip)
 	i = 0;
 	j = 0;
 	while (last->string[i] && last->string[i] != '\n')
-		++i;
+		i++;
 	while (last->string[i] && last->string[++i])
 		buffer[j++] = last->string[i];
 	buffer[j] = '\0';
@@ -107,7 +107,7 @@ int	find_newline(t_list *line_snip)
 		while (line_snip->string[i] && i < BUFFER_SIZE)
 		{
 			if (line_snip->string[i] == '\n')
-				return (i);
+				return (1);
 			++i;
 		}
 		line_snip = line_snip->next;

@@ -52,7 +52,6 @@ void	create_snips(t_list **line_snip, int fd)
 		}
 		buffer[chars_read] = '\0';
 		add_line_snip(line_snip, buffer);
-		//free(buffer);
 	}
 }
 
@@ -114,14 +113,14 @@ int	length_to_newline(t_list *line_snip)
 	return (length);
 }
 
-#include <fcntl.h>
+/*#include <fcntl.h>
 #include <stdio.h>
 int main() {
     int fd;
     char *line;
 
     // Open the file
-    fd = open("test_file.txt", O_RDONLY);
+    fd = open("/home/lfrench/francinette/tests/get_next_line/fsoares/variable_nls.txt", O_RDONLY);
     if (fd < 0) {
         perror("Error opening file");
         return 1;
@@ -129,7 +128,7 @@ int main() {
 
     // Read lines until end of file
     while ((line = get_next_line(fd)) != NULL) {
-        printf("%s\n", line);
+        printf("%s", line);
         free(line);
     }
 
@@ -137,4 +136,4 @@ int main() {
     close(fd);
 
     return 0;
-}
+}*/
