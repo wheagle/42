@@ -13,7 +13,7 @@ connect_tcp=$(netstat -an | grep ESTABLISHED | wc -l)
 user_log=$(who | cut -d " " -f 1 | sort -u | wc -l)
 net_ip=$(hostname -I | tr -d ' ') 
 net_mac=$(ip a | grep link/ether | awk '{print $2}' | tr -d ' ')
-sudo_log=$(grep COMMAND /var/log/sudo.log | wc -l)
+sudo_log=$(grep COMMAND /var/log/sudo/sudo.log | wc -l)
 wall "#Architecture: $arch
 #CPU Physical: $cpu_physical
 #vCPU: $vcpu
