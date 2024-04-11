@@ -1,14 +1,14 @@
-/* *************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 19:35:15 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/09 21:53:12 by lfrench          ###   ########.fr       */
+/*   Created: 2024/04/11 18:56:10 by lfrench           #+#    #+#             */
+/*   Updated: 2024/04/11 18:56:12 by lfrench          ###   ########.fr       */
 /*                                                                            */
-/* *************************************************************************/
+/* ************************************************************************** */
 
 /*
  Check if fd or buffer or read() are useful.
@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 	static t_list	*line_snip = NULL;
 	char			*current_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 /*|| (read(fd, &line_snip, 0) > 0)*/)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	create_snips(&line_snip, fd);
 	if (line_snip == NULL)
@@ -112,28 +112,3 @@ int	length_to_newline(t_list *line_snip)
 	}
 	return (length);
 }
-
-/*#include <fcntl.h>
-#include <stdio.h>
-int main() {
-    int fd;
-    char *line;
-
-    // Open the file
-    fd = open("/home/lfrench/francinette/tests/get_next_line/fsoares/variable_nls.txt", O_RDONLY);
-    if (fd < 0) {
-        perror("Error opening file");
-        return 1;
-    }
-
-    // Read lines until end of file
-    while ((line = get_next_line(fd)) != NULL) {
-        printf("%s", line);
-        free(line);
-    }
-
-    // Close the file
-    close(fd);
-
-    return 0;
-}*/
