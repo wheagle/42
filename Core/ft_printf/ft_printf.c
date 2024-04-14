@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/14 21:27:35 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/14 21:48:18 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,10 @@ int		ft_printf(const char *format, ...)
 			break;
 		else if (format[i] == '%')
 			ft_putchar('%');
-			i++;
 		else if (format[i] == 'c')
-			ft_print_char(va_arg(arg_ptr, char));
-			i++;
+			ft_putchar(va_arg(arg_ptr, char));
 		else if (format[i] == 's')
-			ft_print_string(va_arg(arg_ptr, char *));
-			i++;
+			ft_putstr(va_arg(arg_ptr, char *));
 		else if (format[i] == 'p')
 			ft_print_ptr(va_arg(arg_ptr, void *));
 		else if (format[i] == 'd' || format[i] == 'i')
@@ -52,6 +49,8 @@ int		ft_printf(const char *format, ...)
 	va_end(arg_ptr);
 }
 
+
+/*
 int	count_args(const char *format)
 {
 	int	arg_count;
@@ -77,3 +76,4 @@ int	count_args(const char *format)
 	}
 	return (arg_count);
 }
+*/
