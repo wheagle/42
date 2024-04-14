@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/14 12:46:01 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/14 13:03:09 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_printf(const char *format, ...)
 	va_start(arg_ptr, format);
 	//find the number of arguments by the % specifiers in format
 	while(format[i] != '\0')
-		if (format[i++] == '%')
+		if (format[i] == '%')
 			++arg_count;
 	i = 0;
 	while(i < arg_count && format[i] != '\0')
