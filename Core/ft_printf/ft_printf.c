@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/15 17:59:27 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/15 21:02:32 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,22 @@
 int		ft_printf(const char *format, ...)
 {
 	int		char_count;
-	const char	*f;
 
-	f = format;
 	char_count = 0;
 	va_list	arg_ptr;
 	va_start(arg_ptr, format);
-	while(*f != '\0')
+	while(*format != '\0')
 	{
-		if (*f != '%')
+		if (*format == '%')
 		{
-			f++;
-			if (*f == '\0')
+			format++;
+			if (*format == '\0')
 				break;
-			char_count += ft_print_formatted(*f, arg_ptr);
+			char_count += ft_print_formatted(*format, arg_ptr);
 		}
 		else
-			char_count += write(1, f, 1);
-		++f;
+			char_count += write(1, format, 1);
+		++format;
 	}
 	va_end(arg_ptr);
 	return (char_count);
@@ -42,8 +40,6 @@ int		ft_printf(const char *format, ...)
 int	ft_print_formatted(char specifier, va_list arg_ptr)
 {
 	int		count;
-	int		c;
-	char	*str;
 
 	count = 0;
 	if (specifier == 'c')
@@ -55,11 +51,11 @@ int	ft_print_formatted(char specifier, va_list arg_ptr)
 	else if (specifier == 'd' || specifier == 'i')
 		count += ft_print_nbr(va_arg(arg_ptr, int));
 	else if (specifier == 'u')
-		count += ft_print_nbr(va_arg(arg_ptr, unsigned int));
+		count += ft_print_unbr(va_arg(arg_ptr, unsigned int));
 	else if (specifier == 'x')
-		count += ft_print_hex(va_arg(arg_ptr, unsigned int), LOWERCASE);
+		count += ft_print_hex(va_arg(arg_ptr, unsigned long), LOWERCASE);
 	else if (specifier == 'X')
-		count += ft_print_hex(va_arg(arg_ptr, unsigned int), UPPERCASE);
+		count += ft_print_hex(va_arg(arg_ptr, unsigned long), UPPERCASE);
 	else
 		count += write(1, &specifier, 1);
 	return (count);
@@ -89,10 +85,17 @@ int	ft_print_str(char *str)
 
 int	ft_print_ptr(void *ptr)
 {
+	int	count;
+
+	count = 0;
 	if (!ptr)
 		return (ft_print_str("nil"));
 	else
-		return (ft_print_hex((uintptr_t)ptr, LOWERCASE));
+	{
+		count =+ ft_print_str("0x");
+		count += ft_print_hex((uintptr_t)ptr, LOWERCASE);
+		return (count);
+	}
 }
 
 int	ft_print_nbr(int nbr)
@@ -101,7 +104,10 @@ int	ft_print_nbr(int nbr)
 
 	count = 0;
 	if (nbr == -2147483648)
+	{
 		count += write(1, "-2147483648", 11);
+		return (count);
+	}
 	if (nbr < 0)
 	{
 		count += write(1, "-", 1);
@@ -113,32 +119,62 @@ int	ft_print_nbr(int nbr)
 	return (count);
 }
 
-int	ft_print_hex(unsigned int nbr, int ltr_case)
+unsigned int	ft_print_unbr(unsigned int nbr)
+{
+	int	count;
+
+	count = 0;
+	if (nbr >= 10)
+		count += ft_print_unbr(nbr / 10);
+	count += ft_print_char((nbr % 10) + '0');
+	return (count);
+}
+
+int	ft_print_hex(unsigned long nbr, int ltr_case)
 {
 	static const char lower_hex_digits[] = "0123456789abcdef";
 	static const char upper_hex_digits[] = "0123456789ABCDEF";
 	int	i;
-	char str[12];
-
-	i = 10;
-	str[0] = '0';
-	str[1] = 'x';
-	str[11] = '\0';
+	int count;
+	char *str = malloc((sizeof(nbr) * 2) + 1);
+	
+	if (!str)
+		return (-1);
+	count = 0;
+	str = ft_bzero(str, (sizeof(nbr) * 2) + 1);
+	i = (sizeof(nbr) * 2) - 1;
+//	str[i] = '\0';
 	if (nbr == 0)
-		str[i--] = '0';
-	else
-		while(nbr != 0 && i > 1)
-		{
-			if (ltr_case == UPPERCASE)
-				str[i--] = upper_hex_digits[nbr & 0xF];
-			else
-				str[i--] = lower_hex_digits[nbr & 0xF];
-			nbr >>= 4;
-		}
-	return (ft_print_str(&str[i + 1]));
+        str[i--] = '0';
+	while(nbr != 0 && i >= 0)
+	{
+		if (ltr_case == UPPERCASE)
+			str[i--] = upper_hex_digits[nbr & 0xF];
+		else
+			str[i--] = lower_hex_digits[nbr & 0xF];
+		nbr >>= 4;
+	}
+	count = ft_print_str(str);
+	free(str);
+	return (count);
 }
 
 
+void	*ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = '0';
+		i++;
+	}
+	ptr[i] = '\0';
+	return (s);
+}
 /*
 int	count_args(const char *format)
 {
