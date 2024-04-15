@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/15 14:47:40 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/15 17:59:27 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,21 @@
 int		ft_printf(const char *format, ...)
 {
 	int		char_count;
-	int		i;
 	const char	*f;
 
 	f = format;
-	i = 0;
 	char_count = 0;
 	va_list	arg_ptr;
 	va_start(arg_ptr, format);
 	while(*f != '\0')
 	{
 		if (*f != '%')
-			char_count += ft_print_formatted(*(++f), arg_ptr);
+		{
+			f++;
+			if (*f == '\0')
+				break;
+			char_count += ft_print_formatted(*f, arg_ptr);
+		}
 		else
 			char_count += write(1, f, 1);
 		++f;
@@ -39,10 +42,12 @@ int		ft_printf(const char *format, ...)
 int	ft_print_formatted(char specifier, va_list arg_ptr)
 {
 	int		count;
+	int		c;
+	char	*str;
 
 	count = 0;
 	if (specifier == 'c')
-		count += ft_print_char(va_arg(arg_ptr, char));
+		count += ft_print_char(va_arg(arg_ptr, int));
 	else if (specifier == 's')
 		count += ft_print_str(va_arg(arg_ptr, char *));
 	else if (specifier == 'p')
@@ -62,7 +67,7 @@ int	ft_print_formatted(char specifier, va_list arg_ptr)
 
 int	ft_print_char(char c)
 {
-	return (write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
 int	ft_print_str(char *str)
@@ -71,13 +76,13 @@ int	ft_print_str(char *str)
 
 	count = 0;
 	if (str == NULL)
-		return ;
+		return (write(1 ,"nil", 3));
 	while (*str != '\0')
 	{
 		count += write (1, str, 1);
 		if (count == -1)
-			return ;
-		s++;
+			return (write(1 ,"nil", 3));
+		str++;
 	}
 	return (count);
 }
@@ -85,52 +90,52 @@ int	ft_print_str(char *str)
 int	ft_print_ptr(void *ptr)
 {
 	if (!ptr)
-		return (ft_print_str('nil'));
+		return (ft_print_str("nil"));
 	else
-		return (ft_print_hex((unsigned int)ptr, LOWERCASE));
+		return (ft_print_hex((uintptr_t)ptr, LOWERCASE));
 }
 
 int	ft_print_nbr(int nbr)
 {
+	int	count;
 
+	count = 0;
+	if (nbr == -2147483648)
+		count += write(1, "-2147483648", 11);
+	if (nbr < 0)
+	{
+		count += write(1, "-", 1);
+		nbr = -nbr;
+	}
+	if (nbr >= 10)
+		count += ft_print_nbr(nbr / 10);
+	count += ft_print_char((nbr % 10) + '0');
+	return (count);
 }
 
-int	ft_print_hex(unsigned int nbr, int case)
+int	ft_print_hex(unsigned int nbr, int ltr_case)
 {
 	static const char lower_hex_digits[] = "0123456789abcdef";
 	static const char upper_hex_digits[] = "0123456789ABCDEF";
-	int	count;
-	int	size = sizeof(nbr) * 2;
 	int	i;
-	char *str = malloc((sizeof(char) * (size + 3)));
-	uintptr_t	address;
+	char str[12];
 
-	if (!str)
-		return (ft_print_str('nil'));
-	count = 0;
-	i = size + 1;
+	i = 10;
 	str[0] = '0';
 	str[1] = 'x';
-	address = (uintptr_t)ptr;
-
-
-
-	count = 0;
-	if (case == UPPERCASE)
-		
+	str[11] = '\0';
+	if (nbr == 0)
+		str[i--] = '0';
 	else
-		
-	while(i > 1)
-	{
-		str[i--] = hex_digits[address & 0xF];
-        address >>= 4;
-	}
-
-
-	str[size + 2] = '\0';
-	count += ft_print_str(str);
-	free(str);
-	return (count);
+		while(nbr != 0 && i > 1)
+		{
+			if (ltr_case == UPPERCASE)
+				str[i--] = upper_hex_digits[nbr & 0xF];
+			else
+				str[i--] = lower_hex_digits[nbr & 0xF];
+			nbr >>= 4;
+		}
+	return (ft_print_str(&str[i + 1]));
 }
 
 

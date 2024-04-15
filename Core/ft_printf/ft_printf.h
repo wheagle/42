@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:34 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/15 14:31:41 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/15 16:46:02 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int     ft_print_char(char c);
 int 	ft_print_str(char *str);
 int 	ft_print_ptr(void *ptr);
 int 	ft_print_nbr(int nbr);
-int	    ft_print_hex(unsigned int nbr, int case);
+int	    ft_print_hex(unsigned int nbr, int ltr_case);
 
 #endif
