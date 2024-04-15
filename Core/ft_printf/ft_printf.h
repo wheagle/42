@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:34 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/14 21:48:49 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/15 13:20:52 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../libft/libft.a"
 
 int		ft_printf(const char *format, ...);
+int     ft_print_formatted(char specifier, va_list arg_ptr);
 //char	*ft_c_to_str(char *c_input);
 //char	*ft_s_to_str(char *s_input);
 char	*ft_p_to_str(char *p_input);
