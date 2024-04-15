@@ -6,9 +6,13 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/15 13:23:08 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/15 14:47:40 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
+#define LOWERCASE 0
+#define UPPERCASE 1
 
 int		ft_printf(const char *format, ...)
 {
@@ -38,36 +42,97 @@ int	ft_print_formatted(char specifier, va_list arg_ptr)
 
 	count = 0;
 	if (specifier == 'c')
-		count += ft_putchar(va_arg(arg_ptr, char));
+		count += ft_print_char(va_arg(arg_ptr, char));
 	else if (specifier == 's')
-		count += ft_putstr(va_arg(arg_ptr, char *));
+		count += ft_print_str(va_arg(arg_ptr, char *));
 	else if (specifier == 'p')
 		count += ft_print_ptr(va_arg(arg_ptr, void *));
 	else if (specifier == 'd' || specifier == 'i')
-		count += ft_putnbr_base(va_arg(arg_ptr, int), 10);
+		count += ft_print_nbr(va_arg(arg_ptr, int));
 	else if (specifier == 'u')
-		ft_putnbr(va_arg(arg_ptr, unsigned int));
+		count += ft_print_nbr(va_arg(arg_ptr, unsigned int));
 	else if (specifier == 'x')
-		ft_print_lowercase_hex(va_arg(arg_ptr, unsigned int));
+		count += ft_print_hex(va_arg(arg_ptr, unsigned int), LOWERCASE);
 	else if (specifier == 'X')
-		ft_print_uppercase_hex(va_arg(arg_ptr, unsigned int));
-	else // This should handle the double percent sign %%
+		count += ft_print_hex(va_arg(arg_ptr, unsigned int), UPPERCASE);
+	else
 		count += write(1, &specifier, 1);
 	return (count);
 }
 
+int	ft_print_char(char c)
+{
+	return (write(1, &c, 1);
+}
 
-/*
-		else if (format[i] == '\0')
-			break;
-		else if (format[i] == '%')
-			ft_putchar('%');
-		else 
-		
-		
-		
+int	ft_print_str(char *str)
+{
+	int	count;
 
-			*/
+	count = 0;
+	if (str == NULL)
+		return ;
+	while (*str != '\0')
+	{
+		count += write (1, str, 1);
+		if (count == -1)
+			return ;
+		s++;
+	}
+	return (count);
+}
+
+int	ft_print_ptr(void *ptr)
+{
+	if (!ptr)
+		return (ft_print_str('nil'));
+	else
+		return (ft_print_hex((unsigned int)ptr, LOWERCASE));
+}
+
+int	ft_print_nbr(int nbr)
+{
+
+}
+
+int	ft_print_hex(unsigned int nbr, int case)
+{
+	static const char lower_hex_digits[] = "0123456789abcdef";
+	static const char upper_hex_digits[] = "0123456789ABCDEF";
+	int	count;
+	int	size = sizeof(nbr) * 2;
+	int	i;
+	char *str = malloc((sizeof(char) * (size + 3)));
+	uintptr_t	address;
+
+	if (!str)
+		return (ft_print_str('nil'));
+	count = 0;
+	i = size + 1;
+	str[0] = '0';
+	str[1] = 'x';
+	address = (uintptr_t)ptr;
+
+
+
+	count = 0;
+	if (case == UPPERCASE)
+		
+	else
+		
+	while(i > 1)
+	{
+		str[i--] = hex_digits[address & 0xF];
+        address >>= 4;
+	}
+
+
+	str[size + 2] = '\0';
+	count += ft_print_str(str);
+	free(str);
+	return (count);
+}
+
 
 /*
 int	count_args(const char *format)
@@ -94,5 +159,4 @@ int	count_args(const char *format)
 		i++;
 	}
 	return (arg_count);
-}
-*/
+} */
