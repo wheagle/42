@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:49:46 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 12:47:25 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 14:07:24 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,14 @@ hex %x, pointer %p, and double percent %%\n\n", ch, str, num, u_num, ptr);
     // Test the return value from ft_printf to check character count
     int count = ft_printf("This should print 38 characters long.\n");
     printf("ft_printf returned: %d\n\n", count);
+
+	printf("Printf %%p %%p ");
+	printf(" %p %p ", (void *)0, (void *)0);
+	ft_printf(" %p %p \n\n", (void *)0, (void *)0);
+
+	printf("Test (\" %%x \", 0)");
+	printf(" %x ", 0);
+	ft_printf(" %x \n\n", 0);
 
     return 0;
 }

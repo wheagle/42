@@ -6,12 +6,15 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:34 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 12:57:55 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 14:30:01 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# define LOWER_HEX_DIGITS "0123456789abcdef"
+# define UPPER_HEX_DIGITS "0123456789ABCDEF"
 
 # include <stdarg.h>
 # include <stdlib.h>

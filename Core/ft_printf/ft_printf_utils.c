@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:03:09 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 13:11:20 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 14:30:29 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_print_ptr(void *ptr)
 
 	count = 0;
 	if (!ptr)
-		return (ft_print_str("nil"));
+		return (ft_print_str("(nil)"));
 	else
 	{
 		count += ft_print_str("0x");
@@ -63,8 +63,6 @@ unsigned int	ft_print_unbr(unsigned int nbr)
 
 int	ft_print_hex(unsigned long nbr, int ltr_case)
 {
-	static const char	lower_hex_digits[] = "0123456789abcdef";
-	static const char	upper_hex_digits[] = "0123456789ABCDEF";
 	int					i;
 	int					count;
 	char				*str;
@@ -76,14 +74,14 @@ int	ft_print_hex(unsigned long nbr, int ltr_case)
 	str = ft_bzero(str, (sizeof(nbr) * 2) + 1);
 	i = (sizeof(nbr) * 2) - 1;
 	str[i] = '\0';
-	if (nbr == 0)
-		str[i--] = '0';
+//	if (nbr == 0)
+//		str[i--] = '0';
 	while (i >= 0)
 	{
 		if (ltr_case == UPPERCASE)
-			str[i--] = upper_hex_digits[nbr & 0xF];
+			str[i--] = UPPER_HEX_DIGITS[nbr & 0xF];
 		else
-			str[i--] = lower_hex_digits[nbr & 0xF];
+			str[i--] = LOWER_HEX_DIGITS[nbr & 0xF];
 		nbr >>= 4;
 	}
 	i = 0;
@@ -103,9 +101,9 @@ void	*ft_bzero(void *s, size_t n)
 	ptr = (unsigned char *)s;
 	while (i < (n - 1))
 	{
-		ptr[i] = '\0';
+		ptr[i] = '0';
 		i++;
 	}
 	ptr[i] = '\0';
-	return (s);
+	return ((void *)ptr);
 }
