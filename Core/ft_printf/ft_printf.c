@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/15 21:02:32 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 10:27:07 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,10 +143,10 @@ int	ft_print_hex(unsigned long nbr, int ltr_case)
 	count = 0;
 	str = ft_bzero(str, (sizeof(nbr) * 2) + 1);
 	i = (sizeof(nbr) * 2) - 1;
-//	str[i] = '\0';
+	str[i] = '\0';
 	if (nbr == 0)
         str[i--] = '0';
-	while(nbr != 0 && i >= 0)
+	while(i >= 0)
 	{
 		if (ltr_case == UPPERCASE)
 			str[i--] = upper_hex_digits[nbr & 0xF];
@@ -154,7 +154,10 @@ int	ft_print_hex(unsigned long nbr, int ltr_case)
 			str[i--] = lower_hex_digits[nbr & 0xF];
 		nbr >>= 4;
 	}
-	count = ft_print_str(str);
+	i = 0;
+	while (str[i] == '0')
+		i++;
+	count = ft_print_str(&str[i]);
 	free(str);
 	return (count);
 }
@@ -169,7 +172,7 @@ void	*ft_bzero(void *s, size_t n)
 	ptr = (unsigned char *)s;
 	while (i < n)
 	{
-		ptr[i] = '0';
+		ptr[i] = '\0';
 		i++;
 	}
 	ptr[i] = '\0';
