@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:49:46 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 21:18:35 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 21:57:04 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,11 @@ hex %x, pointer %p, and double percent %%\n\n", ch, str, num, u_num, ptr);
 	printf(" %x \n", 0);
 	ft_printf("ft_printf: %x \n\n", 0);
 
+	printf("LONG_MAX: %x \n", LONG_MAX);
+	ft_printf("ft_printf: %x \n\n", LONG_MAX);
 
-	ft_printf(" %x ", LONG_MAX);
+	printf("LONG_MAX: %x \n", LONG_MIN);
+	ft_printf("ft_printf: %x \n\n", LONG_MIN);
 
     return 0;
 }

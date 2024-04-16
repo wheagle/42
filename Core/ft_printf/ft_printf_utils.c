@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:03:09 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 14:30:29 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 21:58:58 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	ft_print_hex(unsigned long nbr, int ltr_case)
 	int					count;
 	char				*str;
 
+	if (nbr == 0)
+		return (write(1, "0", 1));
 	str = malloc((sizeof(nbr) * 2) + 1);
 	if (!str)
 		return (-1);
@@ -74,8 +76,6 @@ int	ft_print_hex(unsigned long nbr, int ltr_case)
 	str = ft_bzero(str, (sizeof(nbr) * 2) + 1);
 	i = (sizeof(nbr) * 2) - 1;
 	str[i] = '\0';
-//	if (nbr == 0)
-//		str[i--] = '0';
 	while (i >= 0)
 	{
 		if (ltr_case == UPPERCASE)
