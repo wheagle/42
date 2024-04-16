@@ -6,12 +6,12 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:49:46 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 12:35:44 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:47:25 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>  // Standard I/O functions
-#include "libftprintf.a"  // Your custom ft_printf function
+#include "ft_printf.h"  // Your custom ft_printf function
 
 int main() {
     int num = -42;

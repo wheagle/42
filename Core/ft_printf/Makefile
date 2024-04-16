@@ -6,7 +6,7 @@
 #    By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/04/16 12:32:02 by lfrench          ###   ########.fr        #
+#    Updated: 2024/04/16 12:50:23 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,11 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) ft_printf
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re
+test: all
+	cc -Wall -Wextra -Werror main.c libftprintf.a -o ft_printf
+
+.PHONY: all clean fclean re test
