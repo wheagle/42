@@ -6,12 +6,13 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:49:46 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 14:07:24 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 21:18:35 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>  // Standard I/O functions
 #include "ft_printf.h"  // Your custom ft_printf function
+#include <limits.h>
 
 int main() {
     int num = -42;
@@ -64,12 +65,15 @@ hex %x, pointer %p, and double percent %%\n\n", ch, str, num, u_num, ptr);
     printf("ft_printf returned: %d\n\n", count);
 
 	printf("Printf %%p %%p ");
-	printf(" %p %p ", (void *)0, (void *)0);
-	ft_printf(" %p %p \n\n", (void *)0, (void *)0);
+	printf(" %p %p \n", (void *)0, (void *)0);
+	ft_printf("ft_printf %p %p \n\n", (void *)0, (void *)0);
 
-	printf("Test (\" %%x \", 0)");
-	printf(" %x ", 0);
-	ft_printf(" %x \n\n", 0);
+	printf("Test (\" %%x \", 0):");
+	printf(" %x \n", 0);
+	ft_printf("ft_printf: %x \n\n", 0);
+
+
+	ft_printf(" %x ", LONG_MAX);
 
     return 0;
 }
