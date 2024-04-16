@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 10:27:07 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:29:00 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,10 @@ int	ft_print_str(char *str)
 
 	count = 0;
 	if (str == NULL)
-		return (write(1 ,"nil", 3));
+		str = "(null)";
 	while (*str != '\0')
 	{
 		count += write (1, str, 1);
-		if (count == -1)
-			return (write(1 ,"nil", 3));
 		str++;
 	}
 	return (count);
@@ -178,29 +176,3 @@ void	*ft_bzero(void *s, size_t n)
 	ptr[i] = '\0';
 	return (s);
 }
-/*
-int	count_args(const char *format)
-{
-	int	arg_count;
-
-	int	i = 0;
-	arg_count = 0;
-	while(format[i] != '\0')
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '%')
-			{
-				i += 2;
-				continue;
-			}
-			else
-			{
-				arg_count++;
-				i++;
-			}
-		}
-		i++;
-	}
-	return (arg_count);
-} */

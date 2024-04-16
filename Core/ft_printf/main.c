@@ -6,12 +6,12 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:49:46 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/15 20:37:26 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:35:44 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>  // Standard I/O functions
-#include "ft_printf.h"  // Your custom ft_printf function
+#include "libftprintf.a"  // Your custom ft_printf function
 
 int main() {
     int num = -42;
@@ -57,10 +57,10 @@ hex %x, pointer %p, and double percent %%\n\n", ch, str, num, u_num, ptr);
     // Null pointer test for string
 //    printf("Standard printf null string: ");
 //    printf("%s\n", (char*)NULL);
-//    ft_printf("Custom ft_printf null string: %s\n\n", (char*)NULL);
+    ft_printf("Custom ft_printf null string: %s\n\n", (char*)NULL);
 
     // Test the return value from ft_printf to check character count
-    int count = ft_printf("This should print 28 characters long.\n");
+    int count = ft_printf("This should print 38 characters long.\n");
     printf("ft_printf returned: %d\n\n", count);
 
     return 0;
