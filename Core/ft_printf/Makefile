@@ -6,13 +6,13 @@
 #    By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/19 14:30:38 by lfrench           #+#    #+#              #
-#    Updated: 2024/04/17 10:22:04 by lfrench          ###   ########.fr        #
+#    Updated: 2024/04/17 10:51:47 by lfrench          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CFLAGS = -Wall -Werror -Wextra
-SRC = ft_printf.c ft_printf_str.c ft_print_nbr.c ft_print_ptr.c ft_print_hex.c
+SRC = ft_printf.c ft_print_str.c ft_print_nbr.c ft_print_ptr.c ft_print_hex.c
 
 OBJ = $(SRC:.c=.o)
 
