@@ -6,13 +6,11 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/16 21:58:43 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/17 10:06:21 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#define LOWERCASE 0
-#define UPPERCASE 1
 
 int	ft_printf(const char *format, ...)
 {
@@ -54,9 +52,9 @@ int	ft_print_formatted(char specifier, va_list arg_ptr)
 	else if (specifier == 'u')
 		count += ft_print_unbr(va_arg(arg_ptr, unsigned int));
 	else if (specifier == 'x')
-		count += ft_print_hex(va_arg(arg_ptr, unsigned int), LOWERCASE);
+		count += ft_print_lower_hex(va_arg(arg_ptr, unsigned int));
 	else if (specifier == 'X')
-		count += ft_print_hex(va_arg(arg_ptr, unsigned int), UPPERCASE);
+		count += ft_print_upper_hex(va_arg(arg_ptr, unsigned int));
 	else
 		count += write(1, &specifier, 1);
 	return (count);
