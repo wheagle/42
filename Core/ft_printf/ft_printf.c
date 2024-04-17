@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:24:31 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/17 10:06:21 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/17 10:20:31 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,5 @@ int	ft_print_formatted(char specifier, va_list arg_ptr)
 		count += ft_print_upper_hex(va_arg(arg_ptr, unsigned int));
 	else
 		count += write(1, &specifier, 1);
-	return (count);
-}
-
-int	ft_print_char(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int	ft_print_str(char *str)
-{
-	int	count;
-
-	count = 0;
-	if (str == NULL)
-		str = "(null)";
-	while (*str != '\0')
-	{
-		count += write (1, str, 1);
-		str++;
-	}
 	return (count);
 }
