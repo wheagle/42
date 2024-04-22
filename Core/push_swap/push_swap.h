@@ -6,7 +6,7 @@
 /*   By: lfrench <lfrench@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:17:07 by lfrench           #+#    #+#             */
-/*   Updated: 2024/04/22 12:28:07 by lfrench          ###   ########.fr       */
+/*   Updated: 2024/04/22 14:17:36 by lfrench          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,10 @@ typedef struct s_stack
 	struct s_stack*	next;
 } t_stack;
 
+t_stack	*load_stack(int argc, char **argv);
+void	push(int num, t_stack **stack);
+void	print_stack(t_stack **stack);
+void	return_error();
+int		ft_atoi(const char *str);
 
 #endif
