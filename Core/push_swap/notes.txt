@@ -1,0 +1,5 @@
+TODO make two stacks.
+Length will be known from argv
+TODO make stack functions.
+TODO make sorting algorithm
+TODO track and print formatted output
